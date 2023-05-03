@@ -11,7 +11,7 @@ export class Library {
     this.render();
   }
 
-  render() {
+  render = () => {
     this.booksList.innerHTML = '';
     this.books.forEach((book) => {
       const bookElement = createBookElement(book, this.removeBook.bind(this));
@@ -19,7 +19,7 @@ export class Library {
     });
   }
 
-  addBook(event) {
+  addBook = (event) => {
     event.preventDefault();
     const titleInput = document.getElementById('title');
     const authorInput = document.getElementById('author');
@@ -33,7 +33,7 @@ export class Library {
     this.addBookForm.reset();
   }
 
-  removeBook(bookToRemove) {
+  removeBook = (bookToRemove) => {
     this.books = this.books.filter((book) => book !== bookToRemove);
     setStoredBooks(this.books);
     this.render();
